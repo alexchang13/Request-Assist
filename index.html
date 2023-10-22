@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Assistance</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container-fluid">
+
+         <h1>Provider Instructions Generator</h1>
+            
+            <div class="row justify-content-around">
+                <div class="col-6">
+                    <h2>Calculate the History Period</h2>
+                    <p><b>Tip:</b> Specify the oldest date for the information you require</p>
+                    <label for="inputMonth">From:</label>
+                        <select id="inputMonth">
+                            <option disabled selected value="">-- Select Month --</option>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+    
+                    <label for="inputYear"></label>
+                    
+                    <input type="number" id="inputYear" placeholder="Year">
+                        <p>To: Current Date</p>    
+                            <div>
+                                <button type="button" class="btn btn-secondary" id="calculateButton">Calculate History Period</button>
+                                <button type="button" class="btn btn-success" id="clearHistoryPeriod">Clear History Period</button>
+                            </div>
+    
+                        <legend id="result"></legend>
+    
+                        <br>
+                        <br><h2>Requesting info from Health Provider</h2>
+                        <fieldset>
+                            <legend>I am looking for:</legend>
+                                <label>
+                                    <input type="radio" name="infoType" value="1" id="allNotes"> Everything held on file
+                                </label>
+                                <br>
+                                <label>
+                                    <input type="radio" name="infoType" value="2" id="specificNotes"> Between 1 - 3 specific condition(s)
+                                </label>
+                                <br>
+                                <label>
+                                    <input type="radio" name="infoType" value="3" id="pieceInfo"> Between 1 - 3 small pieces of information
+                                </label>
+                        </fieldset>
+                                <div class ="requestOptions">
+                                    <div id ="pmar" class="serviceComponent">
+                                        <p>
+                                            <b>Optional:</b> Please specify any number of conditions <u>individually</u> into each box below. If you need more conditions then click the <b>Add Conditions</b> button. 
+                                        </p> 
+                                        <input id="pmarConditionOne" placeholder="Example: Diabetes">
+                                        <input id="pmarConditionTwo" placeholder="All info on left knee">
+                                        <input id="pmarConditionThree" placeholder="Surgery on lower abdomen">
+                                        <button id="addMoreConditionsButton"><b>+ Add Conditions</b></button>
+                                        <div id="inputContainer"></div>
+                                    </div>
+    
+                                    <div id="scr" class="serviceComponent">
+                                        <p>
+                                            <b>Note:</b> Please specify upto 3 conditions <u>individually</u> into each box below:
+                                        </p> 
+                                        <input id="specificConditionOne" placeholder="Example: Diabetes">
+                                        <input id="specificConditionTwo" placeholder="All info on left knee">
+                                        <input id="specificConditionThree" placeholder="Surgery on lower abdomen">
+                                        <p> 
+                                          <b>Tip:</b> If you need more than 3 conditions then consider choosing the option above -'Everything held on file'  
+                                        </p>
+                                     </div>
+    
+                                     <div id="sir" class="serviceComponent">
+                                        <p>
+                                            <b>Note:</b> Please specify upto 3 specific pieces of information <u>individually</u> into each box below:
+                                        </p> 
+                                        <input id="specificInfoOne" placeholder="Example: Specialist Letter">
+                                        <input id="specificInfoTwo" placeholder="ECG">
+                                        <input id="specificInfoThree" placeholder="Histology Report">
+                                     </div>
+                                </class></div>
+                    
+                        <div>
+                            <br><button type="button" class="btn btn-primary" id="generateInstruction">Submit</button>
+                            <button type="button" class="btn btn-success" id="startOver">Start Over</button>
+                        </div>                           
+                </div>
+                <div class="col-6 card" id="column2">
+                    <div class="result">
+                        <h3>Please follow the steps below:</h3>
+                        <ol>
+                            <li>Please select: <span id ="requestSelect"></li>
+                            <li><b>#Years:</b> <span id ="yearsResult"></li>
+                            <li>Please copy below generated text into <b>Instructions for Health Provider:</b></li>
+                                <br><div id="providerInstruction">
+                                </div>
+                        </ol>
+                    </div>           
+                </div>
+              
+
+            </div>          
+                    
+    </div>
+    
+    <script src = "jquery-3.7.0.min.js"></script>
+    <script src = "script.js"></script>
+</body>
+</html>
